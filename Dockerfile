@@ -1,8 +1,8 @@
-FROM ubuntu:14.04
+FROM alpine
 
 MAINTAINER Richard Weber
 
-RUN apt-get update && apt-get install -y mysql-client
+RUN apk add --update mysql-client && rm -rf /var/cache/apk/*
 
-CMD /bin/bash
+ENTRYPOINT ["mysql"]
 
